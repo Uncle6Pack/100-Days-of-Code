@@ -1,0 +1,11 @@
+#Day 1
+
+print("Let's name your band!")
+first_name = input('Give us a verb: ')
+last_name = input('What is the name of your pet? ')
+if 'ing' in first_name:
+  first_name = first_name.replace('ing', '')
+else:
+  first_name = first_name
+print("Your band is now The " + first_name + 'ing ' + last_name + 's')
+
