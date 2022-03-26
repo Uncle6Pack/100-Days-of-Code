@@ -1,0 +1,59 @@
+print("Welcome To Space Quest!")
+print('''
+        _..._
+      .'     '.      _
+     /    .-""-\   _/ \
+   .-|   /:.   |  |   |
+   |  \  |:.   /.-'-./
+   | .-'-;:__.'    =/
+   .'=  *=|NASA _.='
+  /   _.  |    ;
+ ;-.-'|    \   |
+/   | \    _\  _\
+\__/'._;.  ==' ==\
+         \    \   |
+         /    /   /
+         /-._/-._/
+         \   `\  \
+          `-._/._/
+          ''')
+print("You are an astronaut and your mission is to save your fellow astronaut who is floating in outer space!")
+q1 = input("\n Do you want to float to the back or the front of the ship? ")
+q1 =  q1.lower()
+if q1 == 'front':
+  print("\n You floated into the controls and flew away. You left your partner. \n Game Over.")
+else:
+  q2 = input("\n Do you want to use the door on the left or the right? ")
+  q2 = q2.lower()
+  if q2 == 'left':
+    print("\n You exposed yourself to the sun before putting on your helmet. You're dead. \n Game Over.")
+  else:
+    q3 = input('Final choice: \n Three hatches in front of you, do you take the Red, Blue or White one? ')
+    q3 = q3.lower()
+    if q3 == 'red':
+      print('\n That hatch was the bathroom, too late. Game Over.')
+    elif q3 == 'white':
+      print('\n That was to the kitchen, have a snandwich, forget your partner. Game Over.')
+    else:
+      print('\n You WIN! Hero!')
+      print('''
+                            <>
+        .-"""-.       ||::::::==========
+       /= ___  \      ||::::::==========
+      |- /~~~\  |     ||::::::==========
+      |=( '.' ) |     ||================
+      \__\_=_/__/     ||================
+       {_______}      ||================
+     /` *       `'--._||
+    /= .     [] .     { >
+   /  /|ooo     |`'--'|| 
+  (   )\_______/      ||
+   \``\/       \      ||
+    `-| ==    \_|     ||
+      /         |     ||
+     |=   >\  __/     ||
+     \   \ |- --|     ||
+      \ __| \___/     ||
+   _{__} _{__}     ||
+     (    )(    )     ||
+ ^^~  `"""  `"""  ~^^^~^^~~~^^^~^^^~^^^~^^~^''')
