@@ -1,4 +1,5 @@
 import random
+invalidoption = 0
 rock = '''
     _______
 ---'   ____)
@@ -28,16 +29,7 @@ scissors = '''
 
 print("Let's play ROCK, PAPER, SISSORS! \n")
 player = input("Choose Rock (1), Paper (2) or Scissors (3)?")
-player_int = int(player)
-if player_int == 1:
-  player_pick = rock
-elif player_int == 2:
-  player_pick = paper
-else:
-  player_pick = scissors
 
-print("Your pick: " )
-print(player_pick)
 me = random.randint(1,4)
 if me == 1:
   my_pick = rock
@@ -47,6 +39,21 @@ else:
   my_pick = scissors
 print("my_pick: \n")
 print(my_pick)
+
+
+player_int = int(player)
+if player_int >= 3 or  player_int < 1:
+  player_pick = invalidoption
+elif player_int == 1:
+  player_pick = rock
+elif player_int == 2:
+  player_pick = paper
+elif player_int == 3:
+  player_pick = scissors
+
+
+print("Your pick: " )
+print(player_int)
 if player_pick == my_pick:
   print("TIE!")
 elif player_pick == scissors and my_pick == paper:
@@ -61,3 +68,5 @@ elif my_pick == paper and player_pick == rock:
   print("YOU LOSE!")
 elif my_pick == rock and player_pick == scissors:
   print("YOU LOSE!")
+elif player_pick == 0:
+  print("invalid option, you lose!")
