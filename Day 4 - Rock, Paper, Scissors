@@ -1,0 +1,63 @@
+import random
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+print("Let's play ROCK, PAPER, SISSORS! \n")
+player = input("Choose Rock (1), Paper (2) or Scissors (3)?")
+player_int = int(player)
+if player_int == 1:
+  player_pick = rock
+elif player_int == 2:
+  player_pick = paper
+else:
+  player_pick = scissors
+
+print("Your pick: " )
+print(player_pick)
+me = random.randint(1,4)
+if me == 1:
+  my_pick = rock
+elif me == 2:
+  my_pick = paper
+else:
+  my_pick = scissors
+print("my_pick: \n")
+print(my_pick)
+if player_pick == my_pick:
+  print("TIE!")
+elif player_pick == scissors and my_pick == paper:
+  print("YOU WIN!")
+elif player_pick == paper and my_pick == rock:
+  print('YOU WIN!')
+elif player_pick == rock and my_pick == scissors:
+  print("YOU WIN!")
+elif my_pick == scissors and player_pick == paper:
+  print("YOU LOSE!")
+elif my_pick == paper and player_pick == rock:
+  print("YOU LOSE!")
+elif my_pick == rock and player_pick == scissors:
+  print("YOU LOSE!")
