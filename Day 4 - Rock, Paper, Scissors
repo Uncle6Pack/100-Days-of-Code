@@ -42,7 +42,7 @@ print(my_pick)
 
 
 player_int = int(player)
-if player_int >= 3 or  player_int < 1:
+if player_int > 3 or  player_int < 1:
   player_pick = invalidoption
 elif player_int == 1:
   player_pick = rock
@@ -53,7 +53,7 @@ elif player_int == 3:
 
 
 print("Your pick: " )
-print(player_int)
+print(player_pick)
 if player_pick == my_pick:
   print("TIE!")
 elif player_pick == scissors and my_pick == paper:
