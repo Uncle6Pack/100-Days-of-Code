@@ -1,0 +1,71 @@
+#Blackjack
+
+logo = """
+.------.            _     _            _    _            _    
+|A_  _ |.          | |   | |          | |  (_)          | |   
+|( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
+| \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
+|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
+`-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\\
+      |  \/ K|                            _/ |                
+      `------'                           |__/           
+"""
+
+print(logo)
+import random
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+ 
+game_on = True
+
+def final_math():
+  dealer_card_2 = random.choice(cards)
+  dealer_hand = [dealer_card_1, dealer_card_2]
+  print("DEALER'S HAND: \n", dealer_card_1, ' ', dealer_card_2)
+  dealer_math = sum(dealer_hand)
+  while dealer_math < 16:
+    dealer_hand.append(random.choice(cards))
+    dealer_math = sum(dealer_hand)
+    print("DEALER'S HAND: \n", *dealer_hand)
+    if dealer_math > 21:
+      print("DEALER BUSTS, YOU WIN!")
+      game_on = False
+  player_math = 21 - sum(players_cards)
+  dealer_math = 21 - sum(dealer_hand)
+  if dealer_math < player_math:
+    print("Loser")
+    game_on = False
+  else:
+    print('winner')
+    game_on = False
+
+player_card_1 = random.choice(cards) 
+dealer_card_1 = random.choice(cards)
+player_card_2 = random.choice(cards)  
+print("YOUR HAND: \n", player_card_1, " ", player_card_2)
+print("DEALER'S HAND: \n", dealer_card_1)
+players_cards = [player_card_1, player_card_2]
+
+if player_card_1 + player_card_2 == 21:
+  print("BLACKJACK! YOU WIN!")
+  game_on = False
+else:
+  option = input("Hit or Stand? (type h or s) \n")
+  def choice_1(option):
+    if option == 'h':
+      players_cards.append(random.choice(cards))
+      player_math = sum(players_cards)
+      print("YOUR HAND: \n", *players_cards)
+      print("DEALER'S HAND: \n", dealer_card_1)
+      if player_math > 21:
+          print("busted, loser")
+          game_on = False
+      else:
+        h_or_s2 = input("Hit or Stand? (type h or s) \n")
+        choice_1(option = h_or_s2)
+    elif option == 's':
+      print("YOUR HAND: \n", *players_cards)
+      final_math()
+    elif option == 's':
+      print("YOUR HAND: \n", *players_cards)
+      final_math()  
+  choice_1(option = h_or_s)      
