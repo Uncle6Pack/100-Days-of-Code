@@ -1,0 +1,70 @@
+#Guess the Number Game
+
+logo = """
+            ________
+        _jgN########Ngg_
+      _N##N@@""  ""9NN##Np_
+     d###P            N####p
+     "^^"              T####
+                       d###P
+                    _g#####
+                 _gN####
+               gN###F"
+              d###F
+             0###F
+             0###F
+             0###F
+             "NN@'
+
+              ___
+             q###r
+"""
+import random 
+game_on = True
+big_num = random.randint(1,100)
+print("Let's play a game!")
+print(logo)
+
+#def game_level():
+level = input("What level? Choose e(asy), m(edium) or h(ard): ")
+if level == 'e':
+  remaining = 10
+elif level == 'm':
+  remaining = 8
+elif level == "h":
+  remaining = 5
+
+#game_level()
+print("I have a number between 1 and 100.")
+print(f"You have {remaining} guesses remaining.")
+guess = int(input("What is your first guess? "))
+
+def loss():
+  game_on = False
+  print(f"Sorry, out of guesses. The number was {big_num} .")
+
+def player_guess(guess):
+  global remaining 
+  if guess == big_num:
+    print("YOU GOT IT!! CONGRATS!")
+    game_on = False 
+  elif guess > big_num:
+      print("Too High. \n")
+      remaining -= 1
+      if remaining == 0:
+        loss()
+      else:
+        print(f" You have {remaining} guesses remaining.")
+        guess_again = int(input("What is your guess? "))
+        player_guess(guess = guess_again)
+  elif guess < big_num:
+      print("Too Low. \n")
+      remaining -= 1
+      if remaining == 0:
+        loss()
+      else:
+        print(f"You have {remaining} guesses remaining.")
+        guess_again = int(input("What is your guess? "))
+        player_guess(guess = guess_again)
+  
+player_guess(guess)
