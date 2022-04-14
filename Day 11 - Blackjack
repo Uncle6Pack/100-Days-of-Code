@@ -15,8 +15,6 @@ print(logo)
 import random
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
  
-game_on = True
-
 def final_math():
   dealer_card_2 = random.choice(cards)
   dealer_hand = [dealer_card_1, dealer_card_2]
@@ -28,15 +26,14 @@ def final_math():
     print("DEALER'S HAND: \n", *dealer_hand)
     if dealer_math > 21:
       print("DEALER BUSTS, YOU WIN!")
-      game_on = False
+
   player_math = 21 - sum(players_cards)
   dealer_math = 21 - sum(dealer_hand)
-  if dealer_math < player_math:
+  if dealer_math < player_math and (sum(dealer_hand) < 22):
     print("Loser")
-    game_on = False
   else:
-    print('winner')
-    game_on = False
+    print('Winner')
+    
 
 player_card_1 = random.choice(cards) 
 dealer_card_1 = random.choice(cards)
@@ -47,7 +44,7 @@ players_cards = [player_card_1, player_card_2]
 
 if player_card_1 + player_card_2 == 21:
   print("BLACKJACK! YOU WIN!")
-  game_on = False
+  
 else:
   option = input("Hit or Stand? (type h or s) \n")
   def choice_1(option):
@@ -58,7 +55,7 @@ else:
       print("DEALER'S HAND: \n", dealer_card_1)
       if player_math > 21:
           print("busted, loser")
-          game_on = False
+          
       else:
         h_or_s2 = input("Hit or Stand? (type h or s) \n")
         choice_1(option = h_or_s2)
@@ -68,4 +65,4 @@ else:
     elif option == 's':
       print("YOUR HAND: \n", *players_cards)
       final_math()  
-  choice_1(option = h_or_s)      
+  choice_1(option)     
